@@ -1,0 +1,177 @@
+/* Reset and layout */
+body,
+html,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top bar */
+.top-bar {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  align-items: center;
+  z-index: 10;
+}
+
+/* Map area */
+.map-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: grab;
+}
+
+.map-container:active {
+  cursor: grabbing;
+}
+
+/* Pins */
+.pin {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+/* Zoom Slider */
+.zoom-slider {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 8px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.zoom-slider input[type="range"] {
+  width: 120px;
+}
+
+/* Filter panel (dynamic color swatches) */
+.filter-panel {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  z-index: 20;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.color-swatch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.color-swatch .swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #000;
+}
+
+.color-swatch input[type="text"] {
+  flex: 1;
+}
+
+/* Pin editor */
+.pin-editor {
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 8px;
+  z-index: 30;
+  width: 260px;
+  max-height: 80%;
+  overflow-y: auto;
+}
+
+.pin-editor h3 {
+  margin-top: 0;
+}
+
+.image-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.image-list-item {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  gap: 5px;
+}
+
+.image-list-item .thumb {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Image viewer */
+.image-viewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+  color: white;
+}
+
+.image-viewer img {
+  max-width: 90%;
+  max-height: 70%;
+  border-radius: 8px;
+  border: 2px solid white;
+}
+
+.image-viewer textarea {
+  width: 80%;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
+  resize: none;
+}
+
+.image-viewer .controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
